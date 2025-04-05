@@ -1,0 +1,40 @@
+name: Build with hatchling
+
+on: 
+  workflow_dispatch:
+  push:
+
+
+jobs:
+  build:
+    name: Build project with pyproject-build & hatchling
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+
+      - name: Install pyproject-build
+        run: python -m pip install build
+
+      - name: Build sdist and wheel
+        run: pyproject-build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Show Wheel contents
+        shell: bash
+        working-directory: dist
+        run: |
+          cp *.whl test.zip
+          unzip test.zip
+          ls 
+          ls foo
+
+
