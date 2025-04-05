@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 
 [project]
-name = "foo"
+name = "Foo"
 version = "0.0.0"
 description = "A minimal buildable Python repo."
 

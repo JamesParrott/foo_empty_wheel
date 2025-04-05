@@ -33,6 +33,6 @@ jobs:
           cp *.whl test.zip
           unzip test.zip
           ls 
-          ls foo
+          ls Foo
 
 
